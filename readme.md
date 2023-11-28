@@ -18,7 +18,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][https://img.shields.io/badge/LinkedIn-blue.svg?logo=LinkedIn]][https://www.linkedin.com/in/mark-hansen-b0267312b]
+[![LinkedIn][https://img.shields.io/badge/LinkedIn-blue.svg?logo=LinkedIn]](https://www.linkedin.com/in/mark-hansen-b0267312b)
 
 
 
@@ -99,6 +99,7 @@ FloodMapping is a project for mapping flooding with various algorithms using Sen
 [![Tqdm 2.2.3](https://img.shields.io/badge/tqdm-2.2.3-blue.svg?logo=tqdm)](https://tqdm.github.io/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- GETTING STARTED -->
+
 ## Algorithms
 
 This is an example of how you may give instructions on setting up your project locally.
