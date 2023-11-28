@@ -25,7 +25,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/mtoernerh/FloodMapping">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.JPG" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">FloodMapping</h3>
@@ -106,13 +106,14 @@ To get a local copy up and running follow these simple example steps.
 
 ### Adaptive Thresholding
 
-![box](https://github.com/mtoernerh/FloodMapping/images/box.svg)
-![quadtree](https://github.com/mtoernerh/FloodMapping/images/quadtree.svg)
 
-<div align="left">
-  <img src="https://github.com/mtoernerh/FloodMapping/images/box_decomposition.svg" width="340" height="340" />
-  <img src="https://github.com/mtoernerh/FloodMapping/images/quadtree_decomposition.svg" width="340" height="340" />
-</div>
+Box             |  QuadTree
+:-------------------------:|:-------------------------:
+![Box](images/box.svg) |  ![Quadtree](images/quadtree.svg)
+
+Box             |  QuadTree
+:-------------------------:|:-------------------------:
+![Box_illustration](images/box_illustration.svg) |  ![Quadtree_illustration](images/quadtree_illustration.svg)
 
 ### Topographic Correction
 
@@ -246,3 +247,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
+[box]: https://github.com/mtoernerh/FloodMapping/images/box.svg
+[quadtree]: https://github.com/mtoernerh/FloodMapping/images/quadtree.svg
+[box_illustration]: https://github.com/mtoernerh/FloodMapping/images/box__illustration.svg
+[quadtree_illustration]: https://github.com/mtoernerh/FloodMapping/images/quadtree__illustration.svg
