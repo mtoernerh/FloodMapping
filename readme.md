@@ -18,7 +18,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![LinkedIn][https://img.shields.io/badge/LinkedIn-blue.svg?logo=LinkedIn]][https://www.linkedin.com/in/mark-hansen-b0267312b]
 
 
 
@@ -32,7 +32,7 @@
   <h3 align="center">FloodMapping</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    A collection of scripts for mapping flooding on terrain using SAR imagery.
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
@@ -52,16 +52,16 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#introduction">Introduction</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#requirements">Requirements</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#Algorithms">Algorithms</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#adaptive-thresholding">Adaptive Thresholding</a></li>
+        <li><a href="#topographic-correction">Topographic Correction</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -75,9 +75,8 @@
 
 
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
+<!-- Introduction -->
+## Introduction
 
 FloodMapping is a project for mapping flooding with various algorithms using Sentinel-1 SAR- and digital elevation data. The code is developed with the specific purpose creating a reference flood dataset for fluvial, pluvial and groundwater flooding in Denmark. The project includes various utility functions to assist the mapping process, but the main algorithms includes (1) a KMeans estimate of a global threshold between water- and background class, (2) bimodality test using gaussian mixture modelling and between-class-variance, (2) local minimum estimate  between water- and background class using KDE smoothening, (3) quadtree- and box decomposition for image tiling, (4) region growing for segmentation of water- and background class and (5) a function for correcting the segmented flooding features using digital elevation.
 
@@ -85,54 +84,39 @@ FloodMapping is a project for mapping flooding with various algorithms using Sen
 
 
 
-### Built With
+### Requirements
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
+[![Python 3.7+](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://www.python.org/downloads/release/python-376/)
+[![Numpy 1.26](https://img.shields.io/badge/numpy-1.26-blue.svg?logo=numpy)](https://numpy.org/devdocs/index.html) 
+[![Rasterio 1.3.9](https://img.shields.io/badge/rasterio-1.3.9%20-blue.svg?logo=rasterio)](https://rasterio.readthedocs.io/en/stable/index.html) 
+[![Gdal 3.8.0](https://img.shields.io/badge/gdal-3.8.0%20-blue.svg?logo=gdal)](https://gdal.org/index.html)
+[![Shapely 2.0.2](https://img.shields.io/badge/shapely-2.0.2%20-blue.svg?logo=shapely)](https://shapely.readthedocs.io/en/stable/manual.html)
+[![Geopandas 0.14.1](https://img.shields.io/badge/geopandas-0.14.1-blue.svg?logo=pandas)](https://geopandas.org/en/stable/)
+[![Skimage 0.22.1](https://img.shields.io/badge/skimage-0.22.0-blue.svg?logo=scikit-image)](https://scikit-image.org/)
+[![Sklearn 1.3.2](https://img.shields.io/badge/sklearn-1.3.2-blue.svg?logo=scikit-learn)](https://scikit-learn.org/stable/)
+[![Scipy 0.14.1](https://img.shields.io/badge/scipy-1.11.4-blue.svg?logo=scipy)](https://scipy.org/)
+[![Matplotlib 3.8.2](https://img.shields.io/badge/matplotlib-3.8.2-blue.svg?logo=matplotlib)](https://matplotlib.org/)
+[![Tqdm 2.2.3](https://img.shields.io/badge/tqdm-2.2.3-blue.svg?logo=tqdm)](https://tqdm.github.io/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- GETTING STARTED -->
-## Getting Started
+## Algorithms
 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+### Adaptive Thresholding
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+![box](https://github.com/mtoernerh/FloodMapping/images/box.svg)
+![quadtree](https://github.com/mtoernerh/FloodMapping/images/quadtree.svg)
 
-### Installation
+<div align="left">
+  <img src="https://github.com/mtoernerh/FloodMapping/images/box_decomposition.svg" width="340" height="340" />
+  <img src="https://github.com/mtoernerh/FloodMapping/images/quadtree_decomposition.svg" width="340" height="340" />
+</div>
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+### Topographic Correction
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+![topographic-correction](https://github.com/mtoernerh/FloodMapping/images/topographic-correction.svg)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -145,6 +129,15 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
+### Data
+S1 SAR imagery
+Digital Elevation Model
+
+Anciliary:
+Land-use
+Ocean-terrain mask
+### Example
+To-be-added
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
