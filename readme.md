@@ -117,7 +117,7 @@ Box             |  QuadTree
 
 ### Topographic Correction
 
-![topographic-correction](https://github.com/mtoernerh/FloodMapping/images/topographic-correction.svg)
+![topographic-correction](images/topographic_correction.svg)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
