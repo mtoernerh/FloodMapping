@@ -190,9 +190,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Mark Frenstrup Tørner Hansen - [@your_twitter](https://twitter.com/your_username) - m.toernerhansen@proton.me
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/mtoernerh/FloodMapping/](https://github.com/mtoernerh/FloodMapping/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
