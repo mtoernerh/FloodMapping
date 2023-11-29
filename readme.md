@@ -126,7 +126,7 @@ Box             |  QuadTree
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The code is developed specifically for this project, and not initially intended for public usage
+The code is developed specifically for a flood warning project where reference data for machine learning and hydrological modelling purposes were required, and not initially intended for public usage. Thus, the code is not very plug-and-play and users will probably need to alter the code to their own specific needs. Working examples using sample data are presented, which showcases how the different functions are utilized.
 
 _For more examples, please refer to the [Documentation](https://github.com/mtoernerh/FloodMapping/examples)_
 
