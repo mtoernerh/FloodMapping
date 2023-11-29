@@ -126,9 +126,9 @@ Box             |  QuadTree
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+The code is developed specifically for this project, and not initially intended for public usage
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://github.com/mtoernerh/FloodMapping/examples)_
 
 ### Data
 * S1 SAR imagery (10 x 10 m)
