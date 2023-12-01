@@ -126,11 +126,12 @@ Box             |  QuadTree
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The code is developed specifically for a flood warning project where reference data for machine learning and hydrological modelling purposes were required, and not initially intended for public usage. Thus, the code is not very plug-and-play and users will probably need to alter the code to their own specific needs. Working examples using sample data are presented, which showcases how the different functions are utilized.
+The code is developed specifically for a flood warning project where flood extent reference data for machine learning and hydrological modelling purposes were required, and not initially intended for public usage. Therefor, the code is not exactly plug-and-play and users will probably need to alter the code to their own specific needs. Jupyter notebook examples using sample data are available, which showcases how the different functions are utilized. There are in total three examples, where the first example (1) showcases segmentation of water and background using KMeans clustering, example (2) showcases the use of quadtree- and box decomposition for image tiling and region growing for segmentation and the last example (3) showcases a novel topographic correction approach where a digital elevation model is leveraged to better delineate water and background.
 
 _For more examples, please refer to the [Documentation](https://github.com/mtoernerh/FloodMapping/examples)_
 
 ### Data
+The following data is included for testing and running examples.
 * S1 SAR imagery (10 x 10 m)
 * Digital Elevation Model (10 x 10 m)
 * Ocean-land mask (10 x 10 m)
@@ -211,13 +212,13 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[contributors-url]: https://github.com/mtoernerh/FloodMapping/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[forks-url]: https://github.com/mtoernerh/FloodMapping/network/members
 [stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+[stars-url]: https://github.com/mtoernerh/FloodMapping/
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[issues-url]: https://github.com/mtoernerh/FloodMapping/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
