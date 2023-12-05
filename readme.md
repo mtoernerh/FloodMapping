@@ -138,6 +138,7 @@ The following data is included for testing and running examples.
 * Streams (shapefile)
 ### Example
 To-be-added
+![Ribe_GIF](images/ribe_flooding.gif)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -244,3 +245,4 @@ Use this space to list resources you find helpful and would like to give credit 
 [quadtree]: https://github.com/mtoernerh/FloodMapping/images/quadtree.svg
 [box_illustration]: https://github.com/mtoernerh/FloodMapping/images/box__illustration.svg
 [quadtree_illustration]: https://github.com/mtoernerh/FloodMapping/images/quadtree__illustration.svg
+[Ribe_GIF]: https://github.com/mtoernerh/FloodMapping/images/ribe_flooding.gif
