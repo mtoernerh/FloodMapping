@@ -1,4 +1,4 @@
-![billede](https://github.com/mtoernerh/FloodMapping/assets/138661460/3fea4a3b-c09e-4aab-80a4-4ae2f04df6e8)<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+
 <a name="readme-top"></a>
 <!--
 -->
@@ -33,14 +33,14 @@
   <p align="center">
     A collection of scripts for mapping flooding on terrain using SAR imagery.
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/mtoernerh"><strong>Explore the contents »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/mtoernerh/FloodMapping/Examples">View Examples</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/mtoernerh/FloodMapping/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/mtoernerh/FloodMapping/issues">Request Feature</a>
   </p>
 </div>
 
@@ -77,7 +77,7 @@
 <!-- Introduction -->
 ## Introduction
 
-FloodMapping is a project for mapping flooding with various algorithms using Sentinel-1 SAR- and digital elevation data. The code is developed with the specific purpose creating a reference flood dataset for fluvial, pluvial and groundwater flooding in Denmark. The project includes various utility functions to assist the mapping process, but the main algorithms includes (1) a KMeans estimate of a global threshold between water- and background class, (2) bimodality test using gaussian mixture modelling and between-class-variance, (2) local minimum estimate  between water- and background class using KDE smoothening, (3) quadtree- and box decomposition for image tiling, (4) region growing for segmentation of water- and background class and (5) a function for correcting the segmented flooding features using digital elevation.
+FloodMapping is a project for mapping flooding with various algorithms using Sentinel-1 SAR and digital elevation data. The code is developed with the specific purpose of creating a reference flood dataset for fluvial, pluvial and groundwater flooding in Denmark. The project includes various utility functions to assist the mapping process, but the main algorithms includes (1) a KMeans estimate of a global threshold between water- and background class, (2) bimodality test using Gaussian Mixture Model (GMM) and Between-Class-Variance (BCV), (2) local minimum estimate  between water- and background class using KDE smoothening, (3) quadtree- and box decomposition for image tiling, (4) region growing for segmentation of water- and background class and (5) a function for correcting the segmented flooding features using digital elevation.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -188,7 +188,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Mark Frenstrup Tørner Hansen - [@your_twitter](https://twitter.com/your_username) - m.toernerhansen@proton.me
+Mark Frenstrup Tørner Hansen - m.toernerhansen@proton.me
 
 Project Link: [https://github.com/mtoernerh/FloodMapping/](https://github.com/mtoernerh/FloodMapping/)
 
