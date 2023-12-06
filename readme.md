@@ -1,4 +1,4 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+![billede](https://github.com/mtoernerh/FloodMapping/assets/138661460/3fea4a3b-c09e-4aab-80a4-4ae2f04df6e8)<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!--
 -->
@@ -146,13 +146,11 @@ To-be-added
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [x] Raw code uploaded
+- [x] Example data
+- [ ] Jupyter examples
+- [ ] Link to scientific article
+- [ ] Code clean-up
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
