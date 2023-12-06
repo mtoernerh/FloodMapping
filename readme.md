@@ -36,7 +36,7 @@
     <a href="https://github.com/mtoernerh"><strong>Explore the contents »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/mtoernerh/FloodMapping/Examples">View Examples</a>
+    <a href="https://github.com/mtoernerh/FloodMapping/example">View Examples</a>
     ·
     <a href="https://github.com/mtoernerh/FloodMapping/issues">Report Bug</a>
     ·
@@ -127,7 +127,7 @@ Box             |  QuadTree
 
 The code is developed specifically for a flood warning project where flood extent reference data for machine learning and hydrological modelling purposes were required, and not initially intended for public usage. Therefor, the code is not exactly plug-and-play and users will probably need to alter the code to their own specific needs. Jupyter notebook examples using sample data are available, which showcases how the different functions are utilized. There are in total three examples, where the first example (1) showcases segmentation of water and background using KMeans clustering, example (2) showcases the use of quadtree- and box decomposition for image tiling and region growing for segmentation and the last example (3) showcases a novel topographic correction approach where a digital elevation model is leveraged to better delineate water and background.
 
-_For more examples, please refer to the [Documentation](https://github.com/mtoernerh/FloodMapping/examples)_
+_For more examples, please refer to the [Documentation](https://github.com/mtoernerh/FloodMapping/example)_
 
 ### Data
 The following data is included for testing and running examples.
