@@ -36,7 +36,7 @@
     <a href="https://github.com/mtoernerh"><strong>Explore the contents »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/mtoernerh/FloodMapping/example">View Examples</a>
+    <a href="https://github.com/mtoernerh/FloodMapping/tree/main/example">View Examples</a>
     ·
     <a href="https://github.com/mtoernerh/FloodMapping/issues">Report Bug</a>
     ·
