@@ -14,7 +14,7 @@ from osgeo import gdal
 import warnings
 
 
-def kmeans_global_threshold(array, mask, save_geotiff = False, output_path=None, dataset = None, data_format="dB"):
+def kmeans_global_threshold(array, mask, save_geotiff = False, output_path=None, dataset = None, data_format="dB", log = True):
     """
     Parameters
     ----------
@@ -46,6 +46,10 @@ def kmeans_global_threshold(array, mask, save_geotiff = False, output_path=None,
 
     """
     warnings.filterwarnings("ignore", message="Any labeled images will be returned as a boolean array. Did you mean to use a boolean array?")
+    
+    
+    array = array.clip(np.nanpercentile(array, 1), np.nanpercentile(array, 99))
+    
     array = np.where(mask == 0, np.nan, array)
     
     # Saving dimensions
@@ -57,11 +61,14 @@ def kmeans_global_threshold(array, mask, save_geotiff = False, output_path=None,
     # Find NaN values and store them
     nan_mask = np.isnan(flattened_data)
     non_nan_data = flattened_data[~nan_mask]
-
+    standardized_data = non_nan_data.reshape(-1, 1)
     # Standardize non-NaN data
     scaler = StandardScaler()
-    standardized_data = scaler.fit_transform(non_nan_data.reshape(-1, 1))
+    #standardized_data = scaler.fit_transform(non_nan_data.reshape(-1, 1))
     
+    if log:
+        standardized_data = np.log1p(non_nan_data.reshape(-1, 1))
+        standardized_data = scaler.fit_transform(standardized_data)
     scaled_inertia_values = []
     
     # Calculating KMeans with two to twelve components
@@ -87,7 +94,13 @@ def kmeans_global_threshold(array, mask, save_geotiff = False, output_path=None,
     
     # Calculating median for each cluster
     unique_labels = np.unique(cluster_assignments)
-    label_medians = {label: np.nanpercentile(array[cluster_assignments == label], 50) for label in unique_labels  if label != -1}
+    # Calculate medians for each label
+    label_medians = {
+        label: np.nanpercentile(array[cluster_assignments == label], 50)
+        for label in unique_labels
+        if label != -1  # Exclude points labeled as -1 (if applicable)
+        and np.nanpercentile(array[cluster_assignments == label], 50) != 0  # Exclude labels with median 0
+    }
     
     # Finding cluster with lowest median (should represent water)
     min_median_label = min(label_medians, key=label_medians.get)
@@ -148,11 +161,13 @@ def kmeans_global_threshold(array, mask, save_geotiff = False, output_path=None,
     global_threshold = threshold + correction_factor
     
     
-    # Defining upper limit for global threshold
+    # Defining upper limit for global threshold, change this yourself if not suitable
     if data_format == "dB" and global_threshold > -11:
         global_threshold = -11
     elif data_format == "Power" and global_threshold > 0.776:
         global_threshold = 0.776
+    elif data_format == "None":
+        global_threshold = global_threshold
     
     if save_geotiff and output_path:
         # Saving water cluster as GeoTiff
@@ -164,6 +179,8 @@ def kmeans_global_threshold(array, mask, save_geotiff = False, output_path=None,
     
     print(f"\nNumber of seeds: {len(sampled_indices)} \nGlobal threshold: {threshold} \nCorrected global threshold: {global_threshold}")
     
+    # 
+    sampled_indices = list(map(tuple, sampled_indices))
     # Returning a list of index tuples (y, x) and global upper water threshold
     return sampled_indices, global_threshold
 
