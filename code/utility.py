@@ -3,7 +3,12 @@ import os
 import re
 from datetime import datetime
 from osgeo import gdal, ogr
-
+from scipy.interpolate import griddata
+from skimage.morphology import remove_small_holes, binary_erosion
+import rasterio
+from rasterio.features import shapes
+import geopandas as gpd
+from scipy.spatial import QhullError
 
 def extract_datetime_from_filename(filename, date_format="%Y_%m_%d"):
     # Use regular expression to find a date pattern in the filename
@@ -140,6 +145,36 @@ def tif_to_shapefile(input_path, output_path, file_name):
     raster_field = ogr.FieldDefn('Water', type_mapping[srcband.DataType])
     dst_layer.CreateField(raster_field)
     gdal.Polygonize( srcband, None, dst_layer, 0, [], callback=None)
+
+
+def tif_to_geopandas(filepath):
+    """
+    Convert a raster file (TIFF) to a GeoDataFrame containing polygon geometries.
+
+    Parameters:
+    - filepath (str): Path to the TIFF file.
+
+    Returns:
+    geopandas.GeoDataFrame: GeoDataFrame containing polygonized raster geometries.
+    """
+    mask = None
+    with rasterio.Env():
+        try:
+            with rasterio.open(filepath) as src:
+                image = src.read(1)  # first band
+                results = (
+                    {'properties': {'raster_val': v}, 'geometry': s}
+                    for i, (s, v) in enumerate(shapes(image, mask=mask, connectivity = 4, transform=src.transform))
+                )
+        except Exception as e:
+            print(f"Error processing raster file: {e}")
+            return None
+    
+    geoms = list(results)
+    gpd_polygonized_raster = gpd.GeoDataFrame.from_features(geoms)
+
+    return gpd_polygonized_raster
+
     
 def find_bounding_box(x1, y1, x2, y2, size):
     """
@@ -269,3 +304,65 @@ def calculate_tpi(elevation_neighborhood):
     mean_elevation = np.nanmean(elevation_neighborhood)
     tpi = central_elevation  - mean_elevation
     return tpi
+
+def elevation_boundary_interpolation(array, dem):
+    """
+   Perform elevation interpolation along the boundary of a flooded area.
+
+   Parameters:
+   - array (numpy.ndarray): Binary array representing the flooded area.
+   - dem (numpy.ndarray): Digital Elevation Model (DEM) array.
+
+   Returns:
+   numpy.ndarray: Interpolated elevation array.
+   """
+    flood_fill = remove_small_holes(array, 500)
+    
+    # Extracting flood boundary
+    flood_boundary = flood_fill==1 - binary_erosion(flood_fill==1)
+    
+    # Inserting DEM values along boundary
+    dem_boundary = np.where(flood_boundary, dem, np.nan)
+    
+    # Extract values and coordinates for interpolation
+    values = dem_boundary[flood_boundary]
+    points = np.column_stack(np.where(flood_boundary))
+    xi     = np.column_stack(np.where(flood_fill))
+    if points.shape[0] > 0:
+        try:
+        # Configuring interpolation using griddata
+            interpolation = griddata(points = points, values = values, xi = xi, method='linear') # What method to use?
+            
+            # Apply interpolation to create the final elevation array
+            elevation_interpolation = np.full_like(dem, np.nan)
+            elevation_interpolation[xi[:, 0], xi[:, 1]] = interpolation
+        except QhullError as e:
+            elevation_interpolation = np.full_like(dem, np.nan)
+    else:
+        print("No points given. Check your input data. Returning elevation interpolation with NaN.")
+        elevation_interpolation = np.full_like(dem, np.nan)
+        
+    return elevation_interpolation
+
+def calculate_distances(array, x, y):
+    """
+    Calculate Euclidean distances from a specified point to all points in a 2D array.
+
+    Parameters:
+    - array (numpy.ndarray): 2D array.
+    - x (int): X-coordinate of the specified point.
+    - y (int): Y-coordinate of the specified point.
+
+    Returns:
+    numpy.ndarray: Array of Euclidean distances.
+    """
+    # Get the shape of the array
+    num_rows, num_cols = array.shape
+
+    # Create coordinate grids for rows and columns
+    row_indices, col_indices = np.ogrid[:num_rows, :num_cols]
+
+    # Calculate distances using broadcasting
+    distances = np.sqrt((row_indices - y)**2 + (col_indices - x)**2)
+
+    return distances
