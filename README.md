@@ -191,7 +191,7 @@ Project Link: [https://github.com/mtoernerh/FloodMapping/](https://github.com/mt
 
 * [Geological Survey of Denmark and Greenland](https://eng.geus.dk/)
 * [Agency for Data Supply and Infrastructure](https://eng.sdfi.dk/)
-* [Quadtree-Compression](https://github.com/alpharaoh/Quadtree-Compression)
+* [Quadtree-Compression](https://github.com/alpharaoh/Quadtree-Compression) - Akaam Shamerany
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
